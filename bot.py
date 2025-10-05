@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 # 🔑 Replace this with your bot token
-BOT_TOKEN = "8075110496:AAF7YOrJrImpihtoxVpvzYHDYwX45dd1TfE"
+BOT_TOKEN = "YOUR_BOT_TOKEN"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Send me a YouTube link and I'll download the audio for you!")
@@ -19,7 +19,7 @@ async def download_audio(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'format': 'bestaudio/best',
             'outtmpl': 'downloaded_audio.%(ext)s',
             'noplaylist': True,  # ✅ only download one video, not the whole playlist
-            'ffmpeg_location': r"C:\ffmpeg\bin",  # path to ffmpeg
+            'ffmpeg_location': r"PATH_FOR_FFMPEG",  # path to ffmpeg
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
@@ -56,3 +56,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
